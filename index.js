@@ -164,6 +164,7 @@ function addButtonsLayout(){
 }
 
 function carregaDetalhes(filme){
+    
     document.getElementById("conatinerDetalhes").classList.add("d-none");
     document.getElementById("img").src = './img/sem-foto.jpg'
     const options = {
@@ -177,7 +178,10 @@ function carregaDetalhes(filme){
       fetch(`https://api.themoviedb.org/3/movie/${filme.id}?language=en-US`, options)
         .then(response => response.json())
         .then(response => {
+            console.log(response)
+            //imdb_id
             document.getElementById("img").src = `https://image.tmdb.org/t/p/w500/${response.poster_path}`
+            document.getElementById("imdb").href = `https://www.imdb.com/title/${response.imdb_id}`
             document.getElementById("titulo").innerText = response.title
             document.getElementById("lancamento").innerText = new Date(response.release_date).toLocaleDateString('en-GB')
             document.getElementById("descricao").innerText = response.overview
