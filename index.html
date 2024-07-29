@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-image: radial-gradient(black, rgb(46, 45, 45));
+    }
+</style>
+<body>
+    <div id="containerPrincipal" class="mt-2 container min-vh-100 d-flex justify-content-center align-items-center text-white">
+        <img src="./img/423b0a797abd14faebc7c09e38bc9e9c.jpeg" class="rounded w-100" alt="" style="z-index: -1; position: absolute; opacity: 5%;">
+        <form id="submitForm">
+            <div class="p-4">
+                <h2 class="text-center">Procure um filme</h2>
+                <h2 class="text-center">baseado nos filtros a baixo:</h2>
+            </div>
+            <div class="row mb-3">
+                <label class="visually-hidden" for="generoSelect">Genero</label>
+                <select name="genero" class="form-select" id="generoSelect">
+                    <option selected disabled>Genero</option>
+                </select>
+            </div>
+            <div class="row mb-3">
+                <label class="visually-hidden" for="decadaSelect">Decada</label>
+                <select name="decada" class="form-select" id="decadaSelect">
+                    <option selected disabled>Decada</option>
+                </select>
+            </div>
+            <div>
+                <div class="d-flex justify-content-between">
+                    <label for="notaRange" class="form-label">Nota</label>
+                    <span id="nota"></span>
+                </div>
+                <input name="notaRange" type="range" class="form-range" min="1" max="10" step="0.5" id="notaRange">
+            </div>
+            <div>
+                <div class="d-flex justify-content-between">
+                    <label for="tempoRange" class="form-label">Duração</label>
+                    <div>
+                        <span id="tempo"></span>
+                        <span>min</span>
+                    </div>
+                </div>
+                <input name="tempoRange" type="range" class="form-range"  min="30" max="240" id="tempoRange">
+            </div>
+            
+            <div class="d-flex justify-content-center p-4">
+                <button type="submit" class="btn btn-primary ps-4 pe-4">Procurar</button>
+            </div>
+
+            <div id="alerta" class="alert alert-danger d-none" role="alert">
+                <span>Nenhum filme encontrado, ajuste os filtros e procure novamente</span>
+            </div>
+        </form>
+        <div id="spinner" class="spinner-border text-light d-none" role="status">
+            <span class="sr-only"></span>
+        </div>
+        <div id="conatinerDetalhes" class="row mb-3 d-none d-flex justify-content-center">
+            <div class="col col-lg-4">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-center">
+                        <img id="img" class="img-fluid rounded shadow w-75" src="./img/sem-foto.jpg" alt="">
+                    </div>
+                    <div class="d-flex mt-2 justify-content-center">
+                        <div class="row">
+                            <div id="generos" class="col">
+                                <!-- generos -->
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="col col-lg-4">
+                <h2 id="titulo" class="mb-1 h2"></h2>
+                <span id="lancamento" class=" badge bg-warning text-dark mb-3"></span>
+                <p id="descricao" class="small mb-3" style="text-align: justify;"></p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<script src="/index.js"></script>
+</html>
